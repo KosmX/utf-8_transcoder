@@ -1,0 +1,9 @@
+#!/bin/bash
+#enter input encoding here
+FROM_ENCODING="windows-1250" # Replace this with your source encoding
+
+BASEDIR=$(dirname "$0")
+
+WORKDIR=$PWD
+
+java -jar "${BASEDIR}/transcoder.jar" ".+\.((txt)|h|c|(cpp))" $FROM_ENCODING $WORKDIR
