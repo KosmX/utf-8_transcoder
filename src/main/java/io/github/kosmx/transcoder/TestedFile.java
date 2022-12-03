@@ -26,7 +26,7 @@ public class TestedFile {
 
             //If it couldn't read the whole file, we have an issue...
             if(stream.read() != -1){
-                throw new IOException("File is larger than maximum allowed size: " + maxSize);
+                throw new IOException("File \"" + filePath.getFileName() + "\" is larger than maximum allowed size: " + maxSize);
             }
         }catch (IOException e){
             throw e;
