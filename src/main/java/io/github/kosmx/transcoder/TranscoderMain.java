@@ -1,5 +1,6 @@
 package io.github.kosmx.transcoder;
 
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.charset.IllegalCharsetNameException;
 import java.nio.file.Path;
@@ -17,7 +18,7 @@ public class TranscoderMain {
 
             new Transcoder(args[0], charset, args.length < 3 ? Path.of("") : Path.of(args[2])).process();
 
-        }catch (IllegalCharsetNameException e) {
+        }catch (IllegalCharsetNameException | IOException e) {
             System.out.println(args[1] + " is not a valid charset: " + e.getMessage());
         }
 

@@ -1,12 +1,9 @@
 package io.github.kosmx.transcoder;
 
-import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.Objects;
 
 public class Transcoder {
     final String regex;
@@ -20,11 +17,11 @@ public class Transcoder {
         this.workDir = path;
     }
 
-    public void process() {
-        var iterator =  Arrays.stream(Objects.requireNonNull(workDir.toFile().listFiles((dir, name) -> name.matches(regex)))).iterator();
+    public void process() throws IOException {
+        var iterator = Files.find(workDir, Integer.MAX_VALUE, (path, basicFileAttributes) -> path.getFileName().toString().matches(regex)).iterator();
         while (iterator.hasNext()){
-            var file = iterator.next();
-            Path path = file.toPath();
+            //var file = iterator.next();
+            Path path = iterator.next();
             //System.out.println("Opening " + path.getFileName());
 
             try{
