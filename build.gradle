@@ -20,6 +20,10 @@ mainClassName = 'io.github.kosmx.transcoder.TranscoderMain'
 
 compileJava.options.encoding = 'UTF-8'
 
+compileJava {
+    options.release = 11
+}
+
 jar {
     manifest {
         attributes (
