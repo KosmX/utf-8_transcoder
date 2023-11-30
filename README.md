@@ -12,7 +12,7 @@ This is a java program, what converts local-encoded files into UTF-8. But not to
 
 Usage:
 1. copy `transcode` into a folder, in your path.
-2. Edit the `FROM_ENCODING="windows-1250"` line, replace your source encoding (This is the default for Hungary and Central Europe)
+2. Edit the `FROM_ENCODING="windows-1250"` line, replace your source encoding (This is the default for Hungary)
 3. `gradle build`, then copy `build/libs/transcoder-***.jar` into the same folder, you copied `transcoder`
 4. `chmod +x transcoder`
 
