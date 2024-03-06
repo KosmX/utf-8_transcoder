@@ -6,4 +6,4 @@ BASEDIR=$(dirname "$0")
 
 WORKDIR=$PWD
 
-java -jar "${BASEDIR}/transcoder.jar" ".+\.((txt)|h|c|(cpp))" $FROM_ENCODING $WORKDIR
+java -jar "${BASEDIR}/transcoder.jar" ".+\.((txt)|h|c|(cpp)|(hpp)|(Makefile)|(md))" $FROM_ENCODING $WORKDIR
