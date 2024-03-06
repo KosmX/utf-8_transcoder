@@ -8,7 +8,7 @@
 
 # Maintainer: KosmX kosmx.mc@gmail.com
 pkgname=utf8-converter # '-bzr', '-git', '-hg' or '-svn'
-pkgver=rr2.8e9b0d4r.r
+pkgver=efea9c3
 pkgrel=1
 pkgdesc="Stuff to convert Windows local coded junk to UTF-8"
 arch=('x86_64')
@@ -31,7 +31,7 @@ md5sums=('SKIP')
 # a description of each element in the source array.
 
 pkgver() {
-	cd "$srcdir/${pkgname%-VCS}"
+	cd "$srcdir/${pkgname}"
 
 # The examples below are not absolute and need to be adapted to each repo. The
 # primary goal is to generate version numbers that will increase according to
@@ -39,20 +39,9 @@ pkgver() {
 # VERSION='VER_NUM.rREV_NUM.HASH', or a relevant subset in case VER_NUM or HASH
 # are not available, is recommended.
 
-# Bazaar
-	printf "r%s" "$(bzr revno)"
-
 # Git, tags available
-	printf "%s" "$(git describe --long | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
-
-# Git, no tags available
-	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
-
-# Mercurial
-	printf "r%s.%s" "$(hg identify -n)" "$(hg identify -i)"
-
-# Subversion
-	printf "r%s" "$(svnversion | tr -d 'A-z')"
+	
+	printf "%s" "$(git describe --long --always | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
 }
 
 #prepare() {
